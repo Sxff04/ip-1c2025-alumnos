@@ -10,8 +10,17 @@ from django.contrib.auth import get_user
 def getAllImages():
     # debe ejecutar los siguientes pasos:
     # 1) traer un listado de imágenes crudas desde la API (ver transport.py)
+    raw_data_imagenes = transport.getAllImages()
     # 2) convertir cada img. en una card.
+    lista_de_cartas = []
+
+    for infoPokemon in raw_data_imagenes:
+        # Usamos la función fromRequestIntoCard del módulo translator
+        # para convertir cada objeto JSON crudo en un objeto Card
+        card = translator.fromRequestIntoCard(infoPokemon)
     # 3) añadirlas a un nuevo listado que, finalmente, se retornará con todas las card encontradas.
+        lista_de_cartas.append(card)
+    return lista_de_cartas
     pass
 
 # función que filtra según el nombre del pokemon.
