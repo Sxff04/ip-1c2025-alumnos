@@ -20,6 +20,5 @@ class Favourite(models.Model):
         unique_together = (('user', 'name'),)
 
     def __str__(self):
-        return (f"{self.name} - Altura: {self.height if self.height else 'Desconocida'} "
-                f"(Peso: {self.weight if self.weight else 'Desconocido'}) - "
-                f"User: {self.user.username}")
+        return (f"{self.name} - Altura: {self.height if self.height else 'Desconocida'} "f"(Peso: {self.weight if self.weight else 'Desconocido'}) - "f"User: {self.user.username}")
+                
