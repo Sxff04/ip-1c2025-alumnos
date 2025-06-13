@@ -16,10 +16,10 @@ def getAllImages():
 
     lista_de_cartas = []
 
-    for raw_data in raw_data_imagenes:
+    for infoPokemon in raw_data_imagenes:
         # Usamos la función fromRequestIntoCard del módulo translator
         # para convertir cada objeto JSON crudo en un objeto Card
-        card = translator.fromRequestIntoCard(raw_data)
+        card = translator.fromRequestIntoCard(infoPokemon)
     # 3) añadirlas a un nuevo listado que, finalmente, se retornará con todas las card encontradas.
 
         lista_de_cartas.append(card)
