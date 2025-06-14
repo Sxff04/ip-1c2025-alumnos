@@ -5,6 +5,7 @@ from ...config import config
 from ..persistence import repositories
 from ..utilities import translator
 from django.contrib.auth import get_user
+from ..utilities.card import Card
 
 # función que devuelve un listado de cards. Cada card representa una imagen de la API de Pokemon
 def getAllImages():
@@ -24,12 +25,16 @@ def getAllImages():
     pass
 
 # función que filtra según el nombre del pokemon.
-def filterByCharacter(name):
+def filterByCharacter(nombre):
     filtered_cards = []
+
+    # Convertir el nombre de búsqueda a minúsculas para una comparación insensible a mayúsculas/minúsculas
+    buscar_nombre = nombre.lower()
 
     for card in getAllImages():
         # debe verificar si el name está contenido en el nombre de la card, antes de agregarlo al listado de filtered_cards.
-        filtered_cards.append(card)
+        if buscar_nombre in card.name.lower():
+            filtered_cards.append(card)
 
     return filtered_cards
 
