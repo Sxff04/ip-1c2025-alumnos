@@ -43,8 +43,9 @@ def filterByType(type_filter):
     filtered_cards = []
 
     for card in getAllImages():
-        # debe verificar si la casa de la card coincide con la recibida por parámetro. Si es así, se añade al listado de filtered_cards.
-        filtered_cards.append(card)
+        tipos = [t.lower() for t in card.types]  # Aseguramos comparación en minúsculas
+        if type_filter.lower() in tipos:
+            filtered_cards.append(card)
 
     return filtered_cards
 
