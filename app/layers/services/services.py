@@ -49,6 +49,7 @@ def filterByType(type_filter):
 
     return filtered_cards
 
+
 # añadir favoritos (usado desde el template 'home.html')
 def saveFavourite(request):
     fav = '' # transformamos un request en una Card (ver translator.py)

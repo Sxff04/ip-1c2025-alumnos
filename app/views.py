@@ -40,7 +40,7 @@ def filter_by_type(request):
     type = request.POST.get('type', '')
 
     if type != '':
-        images = services.filterByType(type)
+        images = services.filterByType(type) #se llama a la funcion filterByTypes, usando el parametro type
         favourite_list = []  # opcional: podés traer los favoritos reales
 
         return render(request, 'home.html', { 'images': images, 'favourite_list': favourite_list })
