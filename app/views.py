@@ -22,11 +22,11 @@ def search(request):
 
     # si el usuario ingresó algo en el buscador, se deben filtrar las imágenes por dicho ingreso.
     if (nombre != ''):
-        images = services.filterByCharacter(nombre)
+        images = services.filterByCharacter(nombre) 
         favourite_list = []
         
-        if not images:
-                images = services.filterByType(nombre)
+        if not images: #en caso de que no lo encuentre por su nombre
+                images = services.filterByType(nombre) #lo busca por su tipo 
                 favourite_list = []
         
         return render(request, 'home.html', { 'images': images, 'favourite_list': favourite_list })
