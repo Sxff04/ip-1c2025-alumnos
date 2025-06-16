@@ -43,7 +43,7 @@ def filterByType(type_filter):
     filtered_cards = []
 
     for card in getAllImages():
-        tipos = [t.lower() for t in card.types]  # Aseguramos comparación en minúsculas
+        tipos = [t.lower() for t in card.types]  # Nos aseguramos que sea en minuscula todo, para que no haya errores
         if type_filter.lower() in tipos:
             filtered_cards.append(card)
 
