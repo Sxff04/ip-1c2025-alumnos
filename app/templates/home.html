@@ -37,15 +37,18 @@
         {% else %} {% for img in images %}
         <div class="col">
             <!-- evaluar si la imagen pertenece al tipo fuego, agua o planta -->
-            <div class="card border-success mb-3 ms-5" style="max-width: 540px; ">
-                {% if img.image == 'fire'%} 
-                    <div style="border: 2px solid red;">
-                {% elif img.image == 'water' %} 
-                    <div style="border: 2px solid blue;">
-                {% elif img.image == 'grass' %} 
-                    <div style="border: 2px solid green;">      
+            <div class="card mb-3 ms-5
+                {% if 'fire' in img.types %} 
+                    border-danger
+                {% elif 'water' in img.types %} 
+                    border-primary
+                {% elif 'grass' in img.types %} 
+                    border-success
+                {% else %}
+                    border-warning
                 {% endif %}
-                 <div class="row g-0">
+            ">
+                    <div class="row g-0">
                      <div class="col-md-4">
                          <img src="{{ img.image }}" class="card-img-top"alt="imagen">
                      </div>
